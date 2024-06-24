@@ -20,7 +20,7 @@ app.use(helmet()); // Security middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// const ADMIN_PASSWORD = "password";
+const ADMIN_PASSWORD = "password";
 
 app.use(
   "/optimize",
@@ -35,7 +35,6 @@ app.use(
   rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
-    s,
   })
 );
 
