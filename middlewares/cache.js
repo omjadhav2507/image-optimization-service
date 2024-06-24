@@ -1,5 +1,3 @@
-// middlewares/cache.js
-
 const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: require("../config").cacheTTL });
 
@@ -9,7 +7,6 @@ module.exports = (req, res, next) => {
   if (cachedResponse) {
     return res.send(cachedResponse);
   }
-
   res.sendResponse = res.send;
   res.send = (body) => {
     cache.set(key, body);

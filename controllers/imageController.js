@@ -1,6 +1,6 @@
-// controllers/imageController.js
 const sharp = require("sharp");
 const config = require("../config");
+const logger = require("../utils/logger");
 
 const optimizeImage = async (buffer, options) => {
   let image = sharp(buffer);
@@ -14,7 +14,7 @@ const optimizeImage = async (buffer, options) => {
   return await image.toBuffer();
 };
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next) => {
   if (!req.file) {
     return res.status(400).send("No file uploaded.");
   }
@@ -38,6 +38,7 @@ module.exports = async (req, res) => {
     res.set("Content-Type", `image/${format}`);
     res.send(optimizedImage);
   } catch (error) {
-    res.status(500).send("Error optimizing image.");
+    logger.error("Error optimizing image: %o", error);
+    next(error);
   }
 };
