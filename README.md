@@ -4,9 +4,14 @@ This project provides a Node.js-based image optimization service that allows use
 
 ## Features
 
-- Image Optimization: Automatically resizes and converts images based on specified parameters.
-- Caching: Utilizes caching to improve performance by storing optimized images temporarily.
-- Supported Formats: Supports JPEG, PNG, and WebP formats for optimized images.
+- **Resizing**: Adjust the dimensions of images.
+- **Compression**: Reduce the file size of images while maintaining quality.
+- **Format Conversion**: Convert images to different formats (JPEG, PNG, WebP).
+- **Caching**: Cache optimized images to improve performance.
+- **Security**: Basic authentication and security headers.
+- **Rate Limiting**: Prevent abuse by limiting the number of requests.
+- **Logging**: Comprehensive logging for monitoring and debugging.
+- **Error Handling**: Centralized error handling for better reliability.
 
 ## Installation
 
